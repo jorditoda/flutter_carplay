@@ -1,5 +1,5 @@
-import 'package:flutter_carplay/helpers/enum_utils.dart';
-import 'package:flutter_carplay/models/button/alert_constants.dart';
+import 'package:flutter_car_play/helpers/enum_utils.dart';
+import 'package:flutter_car_play/models/button/alert_constants.dart';
 import 'package:uuid/uuid.dart';
 
 /// A button object for placement in a navigation bar.

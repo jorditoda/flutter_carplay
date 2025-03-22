@@ -3,7 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_carplay/flutter_carplay.dart';
+import 'package:flutter_car_play/flutter_car_play.dart';
 
 void main() {
   runApp(const MyApp());

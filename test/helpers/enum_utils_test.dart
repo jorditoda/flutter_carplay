@@ -1,4 +1,4 @@
-import 'package:flutter_carplay/flutter_carplay.dart';
+import 'package:flutter_car_play/flutter_car_play.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
