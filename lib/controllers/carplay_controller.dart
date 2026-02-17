@@ -40,36 +40,28 @@ class FlutterCarPlayController {
         <String, dynamic>{...updatedListItem.toJson()}).then((value) {
       if (value) {
         l1:
-        for (var h in templateHistory) {
-          switch (h.runtimeType) {
-            case CPTabBarTemplate:
-              for (var t in (h as CPTabBarTemplate).templates) {
-                for (var s in t.sections) {
-                  for (var i in s.items) {
-                    if (i.uniqueId == updatedListItem.uniqueId) {
-                      currentRootTemplate!
-                          .templates[currentRootTemplate!.templates.indexOf(t)]
-                          .sections[t.sections.indexOf(s)]
-                          .items[s.items.indexOf(i)] = updatedListItem;
-                      break l1;
-                    }
-                  }
-                }
-              }
-              break;
-            case CPListTemplate:
-              for (var s in (h as CPListTemplate).sections) {
-                for (var i in s.items) {
-                  if (i.uniqueId == updatedListItem.uniqueId) {
-                    currentRootTemplate!
-                        .sections[currentRootTemplate!.sections.indexOf(s)]
-                        .items[s.items.indexOf(i)] = updatedListItem;
+        for (var template in templateHistory) {
+          if (template is CPTabBarTemplate) {
+            for (var template in template.templates) {
+              for (var section in template.sections) {
+                for (var item in section.items) {
+                  if (item.uniqueId == updatedListItem.uniqueId) {
+                    section.items[section.items.indexOf(item)] =
+                        updatedListItem;
                     break l1;
                   }
                 }
               }
-              break;
-            default:
+            }
+          } else if (template is CPListTemplate) {
+            for (var section in template.sections) {
+              for (var item in section.items) {
+                if (item.uniqueId == updatedListItem.uniqueId) {
+                  section.items[section.items.indexOf(item)] = updatedListItem;
+                  break l1;
+                }
+              }
+            }
           }
         }
       }
